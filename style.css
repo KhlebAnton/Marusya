@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'VK Sans Display';
+    src: url('./fonts/VK_Sans_Display_Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    touch-action: none;
+    font-family: 'VK Sans Display', sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+body {
+    height: 100vh;
+    background-color: #00000000;
+    /*test back*/
+
+    position: relative;
+    text-align: center;
+}
+body::before {
+    content: '';
+    position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   background: #000000;
+    opacity: 0;
+    transition: .2s;
+
+}
+body.light-off::before {
+    opacity: 0.75;
+}
+.bg-shadow {
+    box-shadow: 0px 0px 10px 0px #00000040;
+    -moz-box-shadow: 0px 0px 10px 0px #00000040;
+    -webkit-box-shadow: 0px 0px 10px 0px #00000040;
+    border-radius: 14px;
+}
+
+.hidden {
+    opacity: 0;
+    touch-action: none;
+    pointer-events: none;
+    transform: scale(0);
+}
+
+.screen {
+    height: 100%;
+    padding: 68px 24px 34px;
+    position: fixed;
+    width: 100%;
+    transition: opacity .2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2E2E2EC7;
+    border-radius: 14px;
+    
+    transition: transform .1s;
+}
+.btn:active {
+    transform: scale(.95);
+}
+.secondary-btn {
+    width: 100%;
+    height: 44px;
+    background: #8484846B;
+
+    border: 2px solid transparent
+}
+.primary-btn {
+    width: 100%;
+    height: 44px;
+    background: #0077FF;
+
+
+}
+.btn-light  {
+    width: 100%;
+    height: 44px;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.progress-bar {
+    width: 105px;
+    height: 9px;
+    border-radius: 9px;
+    background: #FFFFFF;
+    padding: 1px;
+    position: relative;
+}
+.progress-bar-line {
+    height: 100%;
+    background: linear-gradient(85.02deg, rgba(0, 119, 255, 0.8) 0.05%, rgba(255, 101, 230, 0.8) 81.49%);
+    border-radius: 9px;
+    transition: .2s;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.sound-info-text {
+padding: 16px;
+border-radius: 14px;
+background: #2E2E2EC7;
+
+
+}
+.sound-info {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+}
+.sound-info::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+height: 0;
+border-bottom: 12px solid #2E2E2EC7;
+border-left: 22px solid transparent;
+top: -12px;
+right: 50px;
+
+}
+.game {
+    font-size: 19px;
+    font-weight: 500;
+}
+.footer-block {
+    background: #2E2E2EC7;
+    padding: 16px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+.footer-block > * {
+    width: 100%;
+}
+.btn-group {
+    display: grid;
+    gap: 10px;
+}
+.marusya-text {
+    background: #0077FF;
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+    max-width: 311px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 44px;
+}
+.marusya-text::after {
+content: '';
+width: 23px;
+height: 16px;
+position: absolute;
+bottom: calc(100% - 1px);
+right: 30px;
+background: url('./img/marisya-vector.svg') 100% 100% / contain no-repeat;
+
+}
+.game {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 68px 24px 34px;
+}
+.game > * {
+    transition:.1s;
+}
+.game.hidden {
+    transform: none;
+    opacity: 1;
+}
+.game.hidden > * {
+    opacity: 0;
+    transform: scale(0);
+    touch-action: none;
+    pointer-events: none;
+}
+.answer-group {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+.answer-group .primary-btn{
+    grid-column: span 2;
+}
+.answer {
+    transition: .2s;
+}
+.answer.choice {
+    background: #EDEDED6B;
+    border: 2px solid #FFFFFF;
+}
+.img-right {
+    width: 89px;
+    height: 89px;
+    background: url('./img/right.png')50%/ contain no-repeat;
+}
+.img-no-right {
+    width: 89px;
+    height: 89px;
+    background: url('./img/no-right.png')50%/ contain no-repeat;
+}
+.answer-right *[answer="no-right"] {
+    display: none;
+}
+.answer-no-right *[answer="right"] {
+    display: none;
+}
+.text-right {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.right-answer {
+    font-size: 16px;
+    font-weight: 400;
+}
+.answer-no-right .right-answer::before {
+    content: 'Вы были близко!';
+    display: block;
+}
+.btn-light svg line {
+    opacity: 1;
+    transition: .2s;
+}
+.btn-light.no-light svg line {
+    opacity: 0;
+}
+.btn-light.no-light svg  {
+   transition: .2s;
+}
+.btn-light.no-light svg path {
+    opacity: 1;
+}
+.btn-light .light-text::before {
+    content: 'Выключить ';
+}
+.btn-light.no-light .light-text::before {
+    content: 'Включить ';
+}
+.img-game-end {
+    width: 89px;
+    height: 89px;
+    background: url('./img/end.png') 50% / contain no-repeat;
+}
+.game-end {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+.game-end-text {
+    font-size: 16px;
+}
